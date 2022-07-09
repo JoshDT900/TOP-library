@@ -19,6 +19,13 @@ let myLibrary = [
     pages: '659',
     published: '1977',
     read: false
+  },
+  {
+    book: 'Nineteen Eighty-Four',
+    author: 'George Orwell',
+    pages: '328',
+    published: '1949',
+    read: false
   }
 ];
 
@@ -46,9 +53,13 @@ myLibrary.forEach(myBook => {
     const newBtn = document.createElement("button")
     newBtn.classList.add("read_button")
 
+    console.log(myBook.book.replace(/[^\w]/g, "_"));
+
     if (key === 'read') {
       newData.textContent = value;
-      newBtn.textContent = "Read?"
+      newData.classList.add(myBook.book.replace(/[^\w]/g, "_").toLowerCase())
+      
+      newBtn.textContent = "Read?"  
       newData.appendChild(newBtn)
     } else {
       newData.textContent = value;
@@ -59,3 +70,10 @@ myLibrary.forEach(myBook => {
 
   tableBox.appendChild(newRow);
 });
+
+function readSwitch() {
+  myLibrary.forEach(myBook => {
+    if ()
+  });
+}
+
