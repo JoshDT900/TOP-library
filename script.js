@@ -43,8 +43,17 @@ myLibrary.forEach(myBook => {
 
   for (const [key, value] of Object.entries(myBook)) {
     const newData = document.createElement("td")
+    const newBtn = document.createElement("button")
+    newBtn.classList.add("read_button")
 
-    newData.textContent = value;
+    if (key === 'read') {
+      newData.textContent = value;
+      newBtn.textContent = "Read?"
+      newData.appendChild(newBtn)
+    } else {
+      newData.textContent = value;
+    }
+    
     newRow.appendChild(newData)
   }
 
