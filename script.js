@@ -2,22 +2,22 @@ let myLibrary = [
   {
     book: 'Harry Potter and the Sorcerer\'s Stone',
     author: 'J.K. Rowling',
-    pages: '',
-    published: '',
+    pages: '309',
+    published: '1997',
     read: false
   },
   {
     book: 'The Hobbit',
     author: 'J.R.R. Tolkien',
-    pages: '',
-    published: '',
+    pages: '366',
+    published: '1937',
     read: false
   },
   {
     book: 'The Shining',
     author: 'Stephen King',
-    pages: '',
-    published: '',
+    pages: '659',
+    published: '1977',
     read: false
   }
 ];
