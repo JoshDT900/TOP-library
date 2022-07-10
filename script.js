@@ -186,15 +186,6 @@ myLibrary.forEach(myBook => {
   
 });
 
-// function readSwitch(e) {
-//   myLibrary.forEach(myBook => {
-//     if (myBook.book.replace(/[^\w]/g, "_").toLowerCase() === e.target.parentElement.classList.value) {
-//       myBook.read = !myBook.read
-//       e.target.previousSibling.textContent = myBook.read
-//     }
-//   })
-// }
-
 let count = 0;
 
 const resetBtn = document.querySelectorAll('.read_button')
