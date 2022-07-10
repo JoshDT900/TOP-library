@@ -1,69 +1,69 @@
 let myLibrary = [
-  {
-    book: 'Harry Potter and the Sorcerer\'s Stone',
-    author: 'J.K. Rowling',
-    pages: '309',
-    published: '1997',
-    read: false,
-    id: 0,
-    readBook: function(e) {
-      myLibrary.forEach(myBook => {
-      if (myBook.book.replace(/[^\w]/g, "_").toLowerCase() === e.target.parentElement.classList.value) {
-        myBook.read = !myBook.read
-        e.target.previousSibling.textContent = myBook.read
-      }
-    })
-    }
-  },
-  {
+  // {
+  //   book: 'Harry Potter and the Sorcerer\'s Stone',
+  //   author: 'J.K. Rowling',
+  //   pages: '309',
+  //   published: '1997',
+  //   read: false,
+  //   id: 0,
+  //   readBook: function(e) {
+  //     myLibrary.forEach(myBook => {
+  //     if (myBook.book.replace(/[^\w]/g, "_").toLowerCase() === e.target.parentElement.classList.value) {
+  //       myBook.read = !myBook.read
+  //       e.target.previousSibling.textContent = myBook.read
+  //     }
+  //   })
+  //   }
+  // },
+  // {
     
-    book: 'The Hobbit',
-    author: 'J.R.R. Tolkien',
-    pages: '366',
-    published: '1937',
-    read: false,
-    id: 1,
-    readBook: function(e) {
-      myLibrary.forEach(myBook => {
-      if (myBook.book.replace(/[^\w]/g, "_").toLowerCase() === e.target.parentElement.classList.value) {
-        myBook.read = !myBook.read
-        e.target.previousSibling.textContent = myBook.read
-      }
-    })
-    }
-  },
-  {
-    book: 'The Shining',
-    author: 'Stephen King',
-    pages: '659',
-    published: '1977',
-    read: false,
-    id: 2,
-    readBook: function(e) {
-      myLibrary.forEach(myBook => {
-      if (myBook.book.replace(/[^\w]/g, "_").toLowerCase() === e.target.parentElement.classList.value) {
-        myBook.read = !myBook.read
-        e.target.previousSibling.textContent = myBook.read
-      }
-    })
-    }
-  },
-  {
-    book: 'Nineteen Eighty-Four',
-    author: 'George Orwell',
-    pages: '328',
-    published: '1949',
-    read: false,
-    id: 3,
-    readBook: function(e) {
-      myLibrary.forEach(myBook => {
-      if (myBook.book.replace(/[^\w]/g, "_").toLowerCase() === e.target.parentElement.classList.value) {
-        myBook.read = !myBook.read
-        e.target.previousSibling.textContent = myBook.read
-      }
-    })
-    }
-  }
+  //   book: 'The Hobbit',
+  //   author: 'J.R.R. Tolkien',
+  //   pages: '366',
+  //   published: '1937',
+  //   read: false,
+  //   id: 1,
+  //   readBook: function(e) {
+  //     myLibrary.forEach(myBook => {
+  //     if (myBook.book.replace(/[^\w]/g, "_").toLowerCase() === e.target.parentElement.classList.value) {
+  //       myBook.read = !myBook.read
+  //       e.target.previousSibling.textContent = myBook.read
+  //     }
+  //   })
+  //   }
+  // },
+  // {
+  //   book: 'The Shining',
+  //   author: 'Stephen King',
+  //   pages: '659',
+  //   published: '1977',
+  //   read: false,
+  //   id: 2,
+  //   readBook: function(e) {
+  //     myLibrary.forEach(myBook => {
+  //     if (myBook.book.replace(/[^\w]/g, "_").toLowerCase() === e.target.parentElement.classList.value) {
+  //       myBook.read = !myBook.read
+  //       e.target.previousSibling.textContent = myBook.read
+  //     }
+  //   })
+  //   }
+  // },
+  // {
+  //   book: 'Nineteen Eighty-Four',
+  //   author: 'George Orwell',
+  //   pages: '328',
+  //   published: '1949',
+  //   read: false,
+  //   id: 3,
+  //   readBook: function(e) {
+  //     myLibrary.forEach(myBook => {
+  //     if (myBook.book.replace(/[^\w]/g, "_").toLowerCase() === e.target.parentElement.classList.value) {
+  //       myBook.read = !myBook.read
+  //       e.target.previousSibling.textContent = myBook.read
+  //     }
+  //   })
+  //   }
+  // }
 ];
 
 function Book(book, author, pages, published, read) {
@@ -72,7 +72,12 @@ function Book(book, author, pages, published, read) {
   this.pages = pages;
   this.published = published;
   this.read = read;
-  this.id = myLibrary[myLibrary.length - 1].id + 1;
+
+  if (myLibrary.length == 0) {
+    this.id = 0
+  } else {
+    this.id = myLibrary[myLibrary.length - 1].id + 1;
+  }  
 }
 
 Book.prototype.readBook = function (e) {
