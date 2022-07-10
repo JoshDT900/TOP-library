@@ -52,17 +52,22 @@ myLibrary.forEach(myBook => {
     const newData = document.createElement("td")
     const newBtn = document.createElement("button")
     const divTxt = document.createElement("div")
-    newBtn.classList.add("read_button")
-
-    console.log(myBook.book.replace(/[^\w]/g, "_"));
+    
 
     if (key === 'read') {
       divTxt.textContent = value;
-
       newData.append(divTxt)
       newData.classList.add(myBook.book.replace(/[^\w]/g, "_").toLowerCase())
       
+      newBtn.classList.add("read_button")
       newBtn.textContent = "Read?"  
+      newData.appendChild(newBtn)
+    } else if (key === 'book') {
+      divTxt.textContent = value;
+      newData.append(divTxt)
+
+      newBtn.classList.add("remove_button")
+      newBtn.textContent = "Remove Book"
       newData.appendChild(newBtn)
     } else {
       newData.textContent = value;
@@ -85,3 +90,15 @@ function readSwitch(e) {
 
 const resetBtn = document.querySelectorAll('.read_button')
 resetBtn.forEach(btn => btn.addEventListener('click', readSwitch));
+
+function removeBook(e) {
+  myLibrary.forEach(myBook => {
+    if (myBook.book === e.target.previousSibling.textContent) {
+      e.target.parentElement.parentElement.remove();
+      myLibrary = myLibrary.filter(obj => obj.book != e.target.previousSibling.textContent)
+    }
+  })
+}
+
+const removeBtn = document.querySelectorAll('.remove_button')
+removeBtn.forEach(btn => btn.addEventListener('click', removeBook));
