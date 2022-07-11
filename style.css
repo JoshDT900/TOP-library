@@ -1,7 +1,48 @@
-table, th, td {
-  border:1px solid black;
+@font-face {
+  font-family: 'quicksand';
+  src: url(./font/Quicksand-Regular.otf);
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  font-family: 'quicksand', sans-serif, Georgia, 'Times New Roman', Times, serif;
+}
+
+body {
+  height: 100vh;
+}
+table, td {
+  border:2px solid #112D4E;
+  background-color: #3F72AF;
+  color: #F9F7F7;
+  font-size: 20px;
+  height: 65px;
+}
+
+th {
+  border:2px solid #112D4E;
+  background-color: #3F72AF;
+  color: #F9F7F7;
+  font-size: 20px;
+  height: 25px;
 }
 
 table {
-  width: 100%;
+  width: 80%;
+  border: 5px solid black;
+}
+
+table button {
+  background-color: #DBE2EF;
+  border: 2px solid black;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+table button:hover {
+  color: #DBE2EF;
+  background-color: #112D4E;
 }
