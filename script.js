@@ -55,10 +55,12 @@ const bookName = document.querySelector('#book')
 const authorName = document.querySelector('#author')
 const pageNum = document.querySelector('#pages')
 const publishedDate = document.querySelector('#published')
-const addBookBtn = document.querySelector('.new_book_btn')
+const newBookBtn = document.querySelector('.new_book_btn')
 
 function handleForm(e) {
   e.preventDefault()
+  addBook()
+  hideForm()
 }
 
 function hideForm() {
@@ -66,11 +68,14 @@ function hideForm() {
 }
 
 form.addEventListener('submit', handleForm)
-formSubmit.addEventListener ('click', hideForm)
-addBookBtn.addEventListener('click', showForm)
+newBookBtn.addEventListener('click', showForm)
 
 function showForm() {
   form.style.display = `block`;
+  publishedDate.value = '';
+  pageNum.value = '';
+  authorName.value = '';
+  bookName.value = '';
 }
 
 
@@ -199,4 +204,3 @@ function removeBook(e) {
 const removeBtn = document.querySelectorAll('.remove_button')
 removeBtn.forEach(btn => btn.addEventListener('click', removeBook));
 
-formSubmit.addEventListener('click', addBook)
