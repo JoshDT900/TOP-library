@@ -5,15 +5,7 @@ let myLibrary = [
     pages: '309',
     published: '1997',
     read: false,
-    id: 0,
-    readBook: function(e) {
-      myLibrary.forEach(myBook => {
-      if (myBook.book.replace(/[^\w]/g, "_").toLowerCase() === e.target.parentElement.classList.value) {
-        myBook.read = !myBook.read
-        e.target.previousSibling.textContent = myBook.read
-      }
-    })
-    }
+    id: 0
   },
   {
     
@@ -22,15 +14,7 @@ let myLibrary = [
     pages: '366',
     published: '1937',
     read: false,
-    id: 1,
-    readBook: function(e) {
-      myLibrary.forEach(myBook => {
-      if (myBook.book.replace(/[^\w]/g, "_").toLowerCase() === e.target.parentElement.classList.value) {
-        myBook.read = !myBook.read
-        e.target.previousSibling.textContent = myBook.read
-      }
-    })
-    }
+    id: 1
   },
   {
     book: 'The Shining',
@@ -38,15 +22,7 @@ let myLibrary = [
     pages: '659',
     published: '1977',
     read: false,
-    id: 2,
-    readBook: function(e) {
-      myLibrary.forEach(myBook => {
-      if (myBook.book.replace(/[^\w]/g, "_").toLowerCase() === e.target.parentElement.classList.value) {
-        myBook.read = !myBook.read
-        e.target.previousSibling.textContent = myBook.read
-      }
-    })
-    }
+    id: 2
   },
   {
     book: 'Nineteen Eighty-Four',
@@ -54,24 +30,16 @@ let myLibrary = [
     pages: '328',
     published: '1949',
     read: false,
-    id: 3,
-    readBook: function(e) {
-      myLibrary.forEach(myBook => {
-      if (myBook.book.replace(/[^\w]/g, "_").toLowerCase() === e.target.parentElement.classList.value) {
-        myBook.read = !myBook.read
-        e.target.previousSibling.textContent = myBook.read
-      }
-    })
-    }
+    id: 3
   }
 ];
 
-function Book(book, author, pages, published, read) {
+function Book(book, author, pages, published) {
   this.book = book;
   this.author = author;
   this.pages = pages;
   this.published = published;
-  this.read = read;
+  this.read = false;
 
   if (myLibrary.length == 0) {
     this.id = 0
@@ -80,18 +48,35 @@ function Book(book, author, pages, published, read) {
   }  
 }
 
-Book.prototype.readBook = function (e) {
-  myLibrary.forEach(myBook => {
-    if (myBook.book.replace(/[^\w]/g, "_").toLowerCase() === e.target.parentElement.classList.value) {
-      myBook.read = !myBook.read
-      e.target.previousSibling.textContent = myBook.read
-    }
-  })  
+const tableBox = document.querySelector(".library_table")
+const form = document.querySelector('#book_form')
+const formSubmit = document.querySelector('#add_book')
+const bookName = document.querySelector('#book')
+const authorName = document.querySelector('#author')
+const pageNum = document.querySelector('#pages')
+const publishedDate = document.querySelector('#published')
+const addBookBtn = document.querySelector('.new_book_btn')
+
+function handleForm(e) {
+  e.preventDefault()
 }
 
-function addBook(book, author, pages, published, read) {
-  const newBook = new Book(book, author, pages, published, read)
-  
+function hideForm() {
+  form.style.display = `none`;
+}
+
+form.addEventListener('submit', handleForm)
+formSubmit.addEventListener ('click', hideForm)
+addBookBtn.addEventListener('click', showForm)
+
+function showForm() {
+  form.style.display = `block`;
+}
+
+
+function addBook() {
+  const newBook = new Book(bookName.value, authorName.value, pageNum.value, publishedDate.value)
+
   for (const [key, value] of Object.entries(myLibrary)) {
     if (newBook.book === value.book) {
       return alert ("Book already exists in library.")
@@ -111,8 +96,9 @@ function addBook(book, author, pages, published, read) {
       divTxt.textContent = value;
       newData.append(divTxt)
       newData.classList.add(newBook.book.replace(/[^\w]/g, "_").toLowerCase())
-      
-      newBtn.classList.add("read_button")
+      console.log(newBook.id);
+
+      newBtn.classList.add(`read_button`, `${newBook.id}`)
       newBtn.textContent = "Read?"  
       newData.appendChild(newBtn)
     } else if (key === 'book') {
@@ -133,10 +119,8 @@ function addBook(book, author, pages, published, read) {
 
   tableBox.appendChild(newRow);
 
-  let count = 0;
-
   const resetBtn = document.querySelectorAll('.read_button')
-  resetBtn.forEach((btn, count) => btn.addEventListener('click', myLibrary[count].readBook), count++);
+  resetBtn.forEach(btn=> btn.addEventListener('click', readBook));
 
   function removeBook(e) {
     myLibrary.forEach(myBook => {
@@ -151,7 +135,7 @@ function addBook(book, author, pages, published, read) {
   removeBtn.forEach(btn => btn.addEventListener('click', removeBook));
 }
 
-const tableBox = document.querySelector(".library_table")
+// Adds existing book in myLibrary to the DOM
 
 myLibrary.forEach(myBook => {
   const newRow = document.createElement("tr");
@@ -168,7 +152,7 @@ myLibrary.forEach(myBook => {
       newData.append(divTxt)
       newData.classList.add(myBook.book.replace(/[^\w]/g, "_").toLowerCase())
       
-      newBtn.classList.add("read_button")
+      newBtn.classList.add(`read_button`, `${myBook.id}`)
       newBtn.textContent = "Read?"  
       newData.appendChild(newBtn)
     } else if (key === 'book') {
@@ -191,10 +175,17 @@ myLibrary.forEach(myBook => {
   
 });
 
-let count = 0;
+function readBook(e) {
+  myLibrary.forEach(myBook => {
+    if (myBook.book.replace(/[^\w]/g, "_").toLowerCase() === e.target.parentElement.classList.value) {
+      myBook.read = !myBook.read
+      e.target.previousSibling.textContent = myBook.read
+    }
+  })
+}
 
 const resetBtn = document.querySelectorAll('.read_button')
-resetBtn.forEach((btn, count) => btn.addEventListener('click', myLibrary[count].readBook), count++);
+resetBtn.forEach(btn => btn.addEventListener('click', readBook));
 
 function removeBook(e) {
   myLibrary.forEach(myBook => {
@@ -207,3 +198,5 @@ function removeBook(e) {
 
 const removeBtn = document.querySelectorAll('.remove_button')
 removeBtn.forEach(btn => btn.addEventListener('click', removeBook));
+
+formSubmit.addEventListener('click', addBook)
