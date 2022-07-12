@@ -70,17 +70,26 @@ body {
   height: 100%;
 }
 
-tr > td:nth-child(1), tr > td:nth-child(5) {
-  display: flex;
-  justify-content: space-between;
+tr > td:nth-child(1) {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
   align-items: center;
   padding: 10px;
+  height: auto;
+}
+
+tr > td:nth-child(5) {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 10px;
+  text-align: center;
 }
 
 tr > td:nth-child(1) > div:nth-child(1),
 tr > td:nth-child(5) > div:nth-child(1) {
   font-family: 'quicksand-bold-italic', sans-serif, Georgia, 'Times New Roman', Times, serif;
-  margin-bottom: 10px;
+  padding: 8px;
 }
 
 tr > td:nth-child(2),
@@ -116,15 +125,27 @@ th {
 
 table {
   width: 80%;
-  border: 3px solid black;
+  border: 1px solid black;
   margin-top: 5%;
+  box-shadow: 10px 10px 15px black;
 }
 
 table button {
   background-color: #DBE2EF;
   border: 2px solid black;
-  padding: 8px;
-  font-size: 14px;
+  padding: 4px;
+  font-size: 12px;
+  font-family: 'quicksand_bold', sans-serif, Georgia, 'Times New Roman', Times, serif;
+  border-radius: 6px;
+  font-weight: bold;
+  min-width: max-content;
+}
+
+table .read_button {
+  background-color: #DBE2EF;
+  border: 2px solid black;
+  padding: 4px;
+  font-size: 10px;
   font-family: 'quicksand_bold', sans-serif, Georgia, 'Times New Roman', Times, serif;
   border-radius: 6px;
   font-weight: bold;
