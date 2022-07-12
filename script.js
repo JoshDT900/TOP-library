@@ -58,7 +58,13 @@ const pageNum = document.querySelector('#pages')
 const publishedDate = document.querySelector('#published')
 const newBookBtn = document.querySelector('.new_book_btn')
 
-// formContainer.style.display = `none`;
+const authorError = document.querySelector('.author_error')
+const pageNumError = document.querySelector('.pageNum_error')
+const publishedDateError = document.querySelector('.published_error')
+
+formContainer.style.display = `none`;
+
+
 
 function handleForm(e) {
   e.preventDefault()
@@ -66,11 +72,30 @@ function handleForm(e) {
   hideForm()
 }
 
+function showError() {
+  if (authorName.validity.valid === false) {
+    authorError.textContent = '* Name must start with with an uppercase letter.'
+  } else {
+    authorError.textContent = ''; 
+  }
+  if (pageNum.validity.valid === false) {
+    pageNumError.textContent = '* Enter a number greater than or equal to 1.'
+  } else {
+    pageNumError.textContent = "";
+  }
+  if (pageNum.validity.valid === false) {
+    publishedDateError.textContent = '* Enter a number greater than or equal to 1.'
+  } else {
+    publishedDateError.textContent = "";
+  }
+}
+
 function hideForm() {
   formContainer.style.display = `none`;
 }
 
 form.addEventListener('submit', handleForm)
+formSubmit.addEventListener('click', showError)
 newBookBtn.addEventListener('click', showForm)
 
 function showForm() {
@@ -84,7 +109,6 @@ function showForm() {
 
 function addBook() {
   const newBook = new Book(bookName.value, authorName.value, pageNum.value, publishedDate.value)
-  console.log(authorName.value);
   for (const [key, value] of Object.entries(myLibrary)) {
     if (newBook.book === value.book) {
       return alert ("Book already exists in library.")

@@ -20,19 +20,31 @@
         <form action="" id="book_form">
           <div>
             <label for="book">Book Name</label>
-            <input type="text" name="book_title" id="book" placeholder="The Hobbit" required />
+            <input type="text" name="book_title" id="book" placeholder="The Hobbit" required />            
+          </div>
+          <div class="error_form 1">
+            <p></p>
           </div>
           <div>
             <label for="author">Author's Name</label>
-            <input type="text" name="author_name" id="author" title="Name must start with a letter" pattern="^[a-zA-Z].+" placeholder="J.R.R. Tolkien" required />
+            <input type="text" name="author_name" id="author" title="Name must start with an uppercase letter" pattern="^[A-Z].+" placeholder="J.R.R. Tolkien" required />
+          </div>
+          <div class="error_form">
+            <p class="author_error"></p>
           </div>
           <div>
             <label for="pages">Number of Pages</label>
-            <input type="number" name="page_number" id="pages" placeholder="366" required min="1" />
+            <input type="number" name="page_number" id="pages" placeholder="366" required min="1" />            
+          </div>
+          <div class="error_form">
+            <p class="pageNum_error"></p>
           </div>
           <div>
             <label for="published">Year Published</label>
             <input type="number" name="publish_date" id="published" placeholder="1937" min="1" required />
+          </div>
+          <div class="error_form">
+            <p class="published_error"></p>
           </div>
           <button type="submit" id="add_book">Add Book</button>      
         </form>
