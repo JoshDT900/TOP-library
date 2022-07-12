@@ -8,46 +8,51 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div>
-    <button class="new_book_btn">
-      Add New Book
-    </button>
+  <div class="container">
+    <div class="header_box">
+      <h1>My Book Library</h1>
+      <button class="new_book_btn">
+        Add New Book
+      </button>
+    </div>
+    <div class="form_box_container">
+      <div class="form_box">
+        <form action="" id="book_form">
+          <div>
+            <label for="book">Book Name</label>
+            <input type="text" name="book_title" id="book" required />
+          </div>
+          <div>
+            <label for="author">Author's Name</label>
+            <input type="text" name="author_name" id="author" required />
+          </div>
+          <div>
+            <label for="pages">Number of Pages</label>
+            <input type="number" name="page_number" id="pages" required min="1" />
+          </div>
+          <div>
+            <label for="published">Year Published</label>
+            <input type="number" name="publish_date" id="published" required />
+          </div>
+          <button type="submit" id="add_book">Add Book</button>      
+        </form>
+      </div>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Book</th>
+          <th>Author</th>
+          <th>Pages</th>
+          <th>Year Published</th>
+          <th>Read</th>
+        </tr>
+      </thead>
+      <tbody class="library_table">
+  
+      </tbody>    
+    </table>  
   </div>
-  <div id="form_box">
-    <form action="" id="book_form">
-      <div>
-        <label for="book">Book Name</label>
-        <input type="text" name="book_title" id="book" required />
-      </div>
-      <div>
-        <label for="author">Author's Name</label>
-        <input type="text" name="author_name" id="author" required />
-      </div>
-      <div>
-        <label for="pages">Number of Pages</label>
-        <input type="number" name="page_number" id="pages" required min="1" />
-      </div>
-      <div>
-        <label for="published">Year Published</label>
-        <input type="number" name="publish_date" id="published" required />
-      </div>
-      <button type="submit" id="add_book">Add Book</button>      
-    </form>
-  </div>
-  <table>
-    <thead>
-      <tr>
-        <th>Book</th>
-        <th>Author</th>
-        <th>Pages</th>
-        <th>Year Published</th>
-        <th>Read</th>
-      </tr>
-    </thead>
-    <tbody class="library_table">
-
-    </tbody>    
-  </table>  
   <script src="script.js"></script>
 </body>
 </html>

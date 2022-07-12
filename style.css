@@ -3,6 +3,11 @@
   src: url(./font/Quicksand-Regular.otf);
 }
 
+@font-face {
+  font-family: 'qucksand_bold';
+  src: url(./font/Quicksand-Bold.otf);
+}
+
 * {
   padding: 0px;
   margin: 0px;
@@ -12,6 +17,71 @@
 body {
   height: 100vh;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  background-color: #DBE2EF;
+}
+
+.container > .header_box {
+  display: flex;
+  background-color: #112D4E;
+  color: #F9F7F7;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 75px;
+  border-bottom: 4px solid black;
+}
+
+.header_box > .new_book_btn {
+  margin-right: 10%;
+  padding: 10px;
+  border: 3px solid black;
+  font-size: 20px;
+}
+
+.header_box > h1 {
+  margin-left: 10%;
+  margin-right: auto;
+}
+
+.form_box_container {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  background-color: rgba(17, 45, 78, 0.5);
+  width: 100%;
+  height: 100%;
+}
+
+tr > td:nth-child(1), tr > td:nth-child(5) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+tr > td:nth-child(2),
+tr > td:nth-child(3),
+tr > td:nth-child(4) {
+  text-align: center;
+}
+
+.form_box {
+  align-self: center;
+  width: 500px;
+  height: 300px;
+  background-color: #DBE2EF;
+  border: 2px solid black;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 10px 5px 15px black;
+}
+
 table, td {
   border:2px solid #112D4E;
   background-color: #3F72AF;
@@ -31,6 +101,7 @@ th {
 table {
   width: 80%;
   border: 5px solid black;
+  margin-top: 5%;
 }
 
 table button {
@@ -38,6 +109,7 @@ table button {
   border: 2px solid black;
   padding: 8px;
   font-size: 14px;
+  font-family: 'quicksand_bold', sans-serif, Georgia, 'Times New Roman', Times, serif;
   border-radius: 6px;
   font-weight: bold;
 }

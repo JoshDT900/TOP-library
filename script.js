@@ -50,12 +50,15 @@ function Book(book, author, pages, published) {
 
 const tableBox = document.querySelector(".library_table")
 const form = document.querySelector('#book_form')
+const formContainer = document.querySelector('.form_box_container')
 const formSubmit = document.querySelector('#add_book')
 const bookName = document.querySelector('#book')
 const authorName = document.querySelector('#author')
 const pageNum = document.querySelector('#pages')
 const publishedDate = document.querySelector('#published')
 const newBookBtn = document.querySelector('.new_book_btn')
+
+formContainer.style.display = `none`;
 
 function handleForm(e) {
   e.preventDefault()
@@ -64,14 +67,14 @@ function handleForm(e) {
 }
 
 function hideForm() {
-  form.style.display = `none`;
+  formContainer.style.display = `none`;
 }
 
 form.addEventListener('submit', handleForm)
 newBookBtn.addEventListener('click', showForm)
 
 function showForm() {
-  form.style.display = `block`;
+  formContainer.style.display = `flex`;
   publishedDate.value = '';
   pageNum.value = '';
   authorName.value = '';
