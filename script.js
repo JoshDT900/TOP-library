@@ -58,7 +58,7 @@ const pageNum = document.querySelector('#pages')
 const publishedDate = document.querySelector('#published')
 const newBookBtn = document.querySelector('.new_book_btn')
 
-formContainer.style.display = `none`;
+// formContainer.style.display = `none`;
 
 function handleForm(e) {
   e.preventDefault()
@@ -84,7 +84,7 @@ function showForm() {
 
 function addBook() {
   const newBook = new Book(bookName.value, authorName.value, pageNum.value, publishedDate.value)
-
+  console.log(authorName.value);
   for (const [key, value] of Object.entries(myLibrary)) {
     if (newBook.book === value.book) {
       return alert ("Book already exists in library.")

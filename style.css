@@ -4,7 +4,7 @@
 }
 
 @font-face {
-  font-family: 'qucksand_bold';
+  font-family: 'quicksand_bold';
   src: url(./font/Quicksand-Bold.otf);
 }
 
@@ -92,7 +92,6 @@ tr > td:nth-child(4) {
 .form_box {
   align-self: center;
   width: 500px;
-  height: 300px;
   background-color: #DBE2EF;
   border: 2px solid black;
   padding: 30px;
@@ -134,4 +133,57 @@ table button {
 table button:hover {
   color: #DBE2EF;
   background-color: #112D4E;
+}
+
+#book_form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+#book_form div {
+  display: grid;
+  gap: 10px;
+}
+
+#book_form label {
+  font-family: 'quicksand-bold-italic';
+}
+
+#book_form button {
+  background-color: #3F72AF;
+  color: #DBE2EF;
+  padding: 5px;
+  border: 2px solid black;
+  font-size: 18px;
+  font-family: 'quicksand_bold';
+}
+
+#book_form button:hover {
+  color: #DBE2EF;
+  background-color: #112D4E;
+}
+
+#book_form input {
+  height: 20px;
+  padding: 5px;
+  border: 3px solid grey;
+}
+
+#book_form input:focus {
+  border: 3px solid #112D4E;
+  outline: 0px;
+}
+
+#book_form input:not(:focus):not(:placeholder-shown):invalid {
+  border: 3px solid red;
+}
+
+#book_form input:valid {
+  border: 3px solid green;
+}
+
+
+#add_book {
+  grid-area: 3 / 1 / 4 / 3;
 }
