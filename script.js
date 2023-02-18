@@ -73,8 +73,10 @@ function handleForm(e) {
 }
 
 function showError() {
-  if (authorName.validity.valid === false) {
+  console.log(authorName.checkValidity());
+  if (authorName.checkValidity() === false) {
     authorError.textContent = '* Name must start with with an uppercase letter.'
+    authorName.setCustomValidity('Name must start with with an uppercase letter.');
   } else {
     authorError.textContent = ''; 
   }
